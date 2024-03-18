@@ -1,0 +1,17 @@
+.caja-horizontal{
+    display: flex;
+    flex-wrap: nowrap;
+    height: auto;
+    /*background-color: #CCC;*/
+    overflow: scroll;
+    width: 75%;
+    margin: 0 auto;
+}
+.width-p{
+   width: auto; 
+}
+
+.w-mio{
+ height: 80%;
+ width: 80%;
+}
