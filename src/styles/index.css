@@ -1,3 +1,21 @@
 /* 
     General Styles
 */
+body{
+    background-image: url('../img/espacio.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+}
+.w-detailspage{
+    width: 80%;
+    margin: 0 auto;
+}
+.w-total{
+    width: 100%;
+   
+}
+
+.logo-star{
+    width: 20%;
+    height: 30%;
+}

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 //import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
@@ -7,6 +7,7 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 
 
 export const Home = () => {
+	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
 		actions.getPlanets();
@@ -16,7 +17,6 @@ export const Home = () => {
 		actions.getCharacters();
 	}, []);
 
-	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="w-100%">
@@ -24,13 +24,12 @@ export const Home = () => {
 			<div className="caja-horizontal">
 				{store.planet.map((planet, index) => (
 					<div className="card width-p col-auto" key={index}>
-						<img src="..." className="card-img-top" alt="..." />
+						<img src={`https://starwars-visualguide.com/assets/img/planets/${index + 1}.jpg`} className="card-img-top" alt="..." />
 						<div className="card-body">
 							<h5 className="card-title">{planet.name}</h5>
-							<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 							<div className="d-flex justify-content-between">
 								<div>
-									<a href="#" className="btn btn-primary ">More infomation</a>
+									<Link to={`/object-planet/${planet.uid}`}><button className="btn btn-primary">More infomation</button></Link>
 								</div>
 								<div>
 									<button href="#"><MdOutlineFavoriteBorder /></button>
@@ -45,13 +44,14 @@ export const Home = () => {
 			<div className="caja-horizontal">
 				{store.character.map((character, index) => (
 					<div className="card  width-p col-auto" key={index}>
-						<img src="..." className="card-img-top" alt="..." />
+						<img src={`https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`} className="card-img-top" alt="..." />
 						<div className="card-body">
 							<h5 className="card-title">{character.name}</h5>
-							<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 							<div className="d-flex justify-content-between">
 								<div>
-									<a href="#" className="btn btn-primary ">More infomation</a>
+									<Link to={`/object-character/${character.uid}`}>
+										<button href="#" className="btn btn-primary ">More infomation</button>
+									</Link>
 								</div>
 								<div>
 
