@@ -14,9 +14,14 @@ export const Navbar = () => {
 					</div>
 
 					<div className="ml-auto">
-						<Link to="/demo">
-							<button className="btn btn-primary">Check the Context in action</button>
-						</Link>
+						<div class="btn-group">
+							<button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Favourites
+							</button>
+							<ul class="dropdown-menu">
+								...
+							</ul>
+						</div>
 					</div>
 				</div>
 			</nav>

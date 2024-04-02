@@ -18,6 +18,7 @@ export const Home = () => {
 	}, []);
 
 
+
 	return (
 		<div className="w-100%">
 			<h3 className="ps-5">Planets</h3>
@@ -32,7 +33,19 @@ export const Home = () => {
 									<Link to={`/object-planet/${planet.uid}`}><button className="btn btn-primary">More infomation</button></Link>
 								</div>
 								<div>
-									<button href="#"><MdOutlineFavoriteBorder /></button>
+								<button
+										type="button"
+										className={`btn ${store.favorites.includes(item.result.properties.name) ? 'btn-danger' : 'btn-outline-danger'} mt-2`}
+										onClick={() => {
+											const isFavorite = store.favorites.includes(item.result.properties.name)
+											if (isFavorite) {
+												actions.deleteFavorites(item.result.properties.name);
+											} else {
+												actions.addFavorites(item.result.properties.name);
+											}
+										}}>
+										<MdOutlineFavoriteBorder />
+									</button>
 								</div>
 							</div>
 						</div>
@@ -54,8 +67,19 @@ export const Home = () => {
 									</Link>
 								</div>
 								<div>
-
-									<button href="#"><MdOutlineFavoriteBorder /></button>
+									<button
+										type="button"
+										className={`btn ${store.favorites.includes(item.result.properties.name) ? 'btn-danger' : 'btn-outline-danger'} mt-2`}
+										onClick={() => {
+											const isFavorite = store.favorites.includes(item.result.properties.name)
+											if (isFavorite) {
+												actions.deleteFavorites(item.result.properties.name);
+											} else {
+												actions.addFavorites(item.result.properties.name);
+											}
+										}}>
+										<MdOutlineFavoriteBorder />
+									</button>
 								</div>
 							</div>
 						</div>

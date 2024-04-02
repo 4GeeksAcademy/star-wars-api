@@ -6,8 +6,8 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
-import { DetailsPage_planet } from "./views/detailsPage-planet";
-import { DetailsPage_character } from "./views/detailsPage-character";
+import { DetailsPageplanet } from "./views/detailsPageplanet";
+import { DetailsPagecharacter } from "./views/detailsPagecharacter";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
@@ -24,8 +24,8 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/object-planet/:uid" element={<DetailsPage_planet />} />
-						<Route path="/object-character/:uid" element={<DetailsPage_character />} />
+						<Route path="/object-planet/:uid" element={<DetailsPageplanet />} />
+						<Route path="/object-character/:uid" element={<DetailsPagecharacter />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />

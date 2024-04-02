@@ -1,14 +1,14 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 
-export const DetailsPage = () => {
+export const DetailsPagecharacter = () => {
     const { uid } = useParams();
-    const [planet, setPlanet] = useState([]);
+    const [character, setCharacter] = useState([]);
 
     useEffect(() => {
-        fetch(`https://www.swapi.tech/api/planets/${uid}`)
+        fetch(`https://www.swapi.tech/api/people/${uid}`)
             .then(res => res.json())
-            .then(data => setPlanet(data.result.properties))
+            .then(data => setCharacter(data.result.properties))
             .catch(error => console.error('Error fetching planet:', error));
     }, [uid]);
 
@@ -21,15 +21,15 @@ export const DetailsPage = () => {
             <div className=" card col-auto w-detailspage">
                 <div className="d-flex justify-content-between">
                     <div className="p-5">
-                        <h2>{planet.name}</h2>
+                        <h2>{character.name}</h2>
                         <hr />
-                        <p>Population: {planet.population}</p>
-                        <p>Terrain: {planet.terrain}</p>
-                        <p>Climate: {planet.climate}</p>
-                        <p>Diameter: {planet.diameter}</p>
+                        <p>Gender: {character.gender}</p>
+                        <p>Height: {character.height}</p>
+                        <p>Mass: {character.mass}</p>
+                        <p>Hair Color: {character.hair_color}</p>
                     </div>
                     <div>
-                        <img src={`https://starwars-visualguide.com/assets/img/planets/${uid}.jpg`} />
+                        <img src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} />
                     </div>
                 </div>
             </div>
