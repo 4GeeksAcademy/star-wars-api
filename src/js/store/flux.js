@@ -4,7 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planet: [],
 			character: [],
 			favourites: [],
-			counter: 0
+			counter: 0,
+			vehicles: []
 
 		},
 		actions: {
@@ -20,21 +21,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
 			},
+			
+			getVehicles: async () => {
+				fetch('https://www.swapi.tech/api/vehicles/')
+					.then(res => res.json())
+					.then(data => setStore({ vehicles: data.results }))
+			},
 			addFavorites: (name) => {
-                setStore({
-                    favorites: [...getStore().favorites, name],
-                    counter: getStore().counter + 1,
-                });
-            },
-            deleteFavorites: (name) => {
-                const currentFavorites = getStore().favorites;
-                const updatedFavorites = currentFavorites.filter((favorite) => favorite !== name);
-                
-                setStore({
-                    favorites: updatedFavorites,
-                    counter: updatedFavorites.length,
-                });
-            }
+				setStore({
+					favourites: [...getStore().favourites, name],
+					counter: getStore().counter + 1,
+				});
+			},
+			deleteFavorites: (name) => {
+				const currentFavorites = getStore().favourites;
+				const updatedFavorites = currentFavorites.filter((favourites) => favourites !== name);
+
+				setStore({
+					favourites: updatedFavorites,
+					counter: updatedFavorites.length,
+				});
+			}
 
 		}
 	};

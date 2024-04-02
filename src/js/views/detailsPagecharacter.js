@@ -16,7 +16,7 @@ export const DetailsPagecharacter = () => {
 
     return (
         <div className="w-total">
-            <h1 className="ps-5">Detalles del Planeta</h1>
+            <h1 className="ps-5 text-warning">Detalles del Planeta</h1>
             <br />
             <div className=" card col-auto w-detailspage">
                 <div className="d-flex justify-content-between">

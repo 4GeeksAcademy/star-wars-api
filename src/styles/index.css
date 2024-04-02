@@ -1,8 +1,7 @@
 /* 
     General Styles
 */
-body{
-    background-image: url('../img/espacio.jpg');
+fondo{
     background-size: cover; 
     background-repeat: no-repeat; 
 }
